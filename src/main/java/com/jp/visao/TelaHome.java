@@ -1,5 +1,6 @@
 package com.jp.visao;
 
+import com.jp.tools.ConexaoBD;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -101,5 +102,10 @@ public class TelaHome implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Run.telaHome = this;
+        try {
+            ConexaoBD.getConexao();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
